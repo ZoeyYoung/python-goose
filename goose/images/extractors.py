@@ -22,7 +22,7 @@ limitations under the License.
 """
 import re
 import os
-from urlparse import urlparse, urljoin
+from urllib.parse import urlparse, urljoin
 from goose.utils import FileHelper
 from goose.images.image import Image
 from goose.images.utils import ImageUtils

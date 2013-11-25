@@ -20,7 +20,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 """
-import urllib2
+import urllib.request, urllib.error, urllib.parse
 
 
 class HtmlFetcher(object):
@@ -35,14 +35,14 @@ class HtmlFetcher(object):
         """\
 
         """
-        if isinstance(url, unicode):
-            url = url.encode('utf-8')
+        # if isinstance(url, str):
+        #     url = url.encode('utf-8')
 
         headers = {'User-agent': config.browser_user_agent}
-        request = urllib2.Request(url, headers=headers)
+        request = urllib.request.Request(url, headers=headers)
 
         try:
-            result = urllib2.urlopen(request).read()
+            result = urllib.request.urlopen(request).read()
         except:
             return None
 
